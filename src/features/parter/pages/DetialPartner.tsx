@@ -77,12 +77,7 @@ const DetialPartner = () => {
             {partnerData.isActive ? "Aktiv" : "Nofaol"}
           </p>
         </div>
-        <div className="p-3 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors">
-          <span className="font-medium text-gray-700 text-sm">Yaratilgan</span>
-          <p className="mt-1 text-gray-600">
-            {new Date(partnerData.createdAt).toLocaleString()}
-          </p>
-        </div>
+    
       </div>
     </div>
   );
