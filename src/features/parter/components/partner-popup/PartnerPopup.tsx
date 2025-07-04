@@ -23,7 +23,7 @@ const PartnerPopup: React.FC<Props> = ({
   isModalOpen,
   previousData,
 }) => {
-  const role = useGetRole()
+  const role = useGetRole();
   const { createPartner } = usePartner();
   const { isPending } = createPartner;
 
@@ -41,11 +41,20 @@ const PartnerPopup: React.FC<Props> = ({
       newPartner.phone.push(phone_secondary);
     }
     console.log(newPartner);
+
+    createPartner.mutate(newPartner, {
+      onSuccess: () => {
+        handleCancel();
+      },
+    });
   };
   return (
     <>
       <Modal
-        title={ `${role === "seller" ? "Sotuvchi " : "Mijoz "}` + `${previousData ? "tahrirlash" : "qo'shish"}` }
+        title={
+          `${role === "seller" ? "Sotuvchi " : "Mijoz "}` +
+          `${previousData ? "tahrirlash" : "qo'shish"}`
+        }
         closable={{ "aria-label": "Custom Close Button" }}
         open={isModalOpen}
         onCancel={handleCancel}
