@@ -11,20 +11,17 @@ type FieldType = {
 };
 
 const Login: React.FC = () => {
-  const dispatch = useDispatch()
-  const {login} = useAuth()
-  const {isPending, isError} = login
-  // console.log(error?.response?.data?.message);
-  
+  const dispatch = useDispatch();
+  const { login } = useAuth();
+  const { isPending, isError } = login;
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     login.mutate(values, {
-      onSuccess:(res) => {
-        dispatch(setToken(res.token))
-      }
-    })
+      onSuccess: (res) => {
+        dispatch(setToken(res.token));
+      },
+    });
   };
-
 
   return (
     <div className="w-full h-screen bg-base-bg grid place-items-center">
@@ -51,15 +48,22 @@ const Login: React.FC = () => {
           >
             <Input.Password />
           </Form.Item>
-          {
-            isError && 
-          <div className="mb-4">
-            <Alert message={"username or password is incorrect"} type="error" />
-          </div>
-          }
+          {isError && (
+            <div className="mb-4">
+              <Alert
+                message={"username or password is incorrect"}
+                type="error"
+              />
+            </div>
+          )}
 
-          <Form.Item style={{margin:0}} label={null}>
-            <Button loading={isPending} type="primary" className="w-full" htmlType="submit">
+          <Form.Item style={{ margin: 0 }} label={null}>
+            <Button
+              loading={isPending}
+              type="primary"
+              className="w-full"
+              htmlType="submit"
+            >
               Submit
             </Button>
           </Form.Item>

@@ -41,13 +41,6 @@ const PartnerPopup: React.FC<Props> = ({
       newPartner.phone.push(phone_secondary);
     }
     console.log(newPartner);
-    
-
-    // createPartner.mutate(newPartner, {
-    //   onSuccess: () => {
-    //     handleCancel();
-    //   },
-    // });
   };
   return (
     <>

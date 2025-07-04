@@ -7,7 +7,6 @@ import TelPopup from "@/shared/components/tel-popup/TelPopup";
 import PaymentPopup from "../../../../payment/components/payment-popup/PaymentPopup";
 import useGetRole from "@/shared/hooks/useGetRole";
 import Options from "@/shared/ui/Options";
-// import { Link } from "react-router-dom";
 
 interface Props {
   data: undefined | any;
